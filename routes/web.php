@@ -29,7 +29,6 @@ Route::get('article/{n}', function($n) {
     return view('article')->with('numero', $n);
 })->where('n', '[0-9]+');
 
-
 Route::get('/form', [\App\Http\Controllers\HomeController::class, 'form']);
 Route::get('/result',function (Request $request ) {
     return $request->age;
@@ -42,3 +41,4 @@ Route::middleware(\App\Http\Middleware\VerifAge::class)->group(
 
     }
 );
+Route::resource('product', \App\Http\Controllers\ProductController::class) ;
